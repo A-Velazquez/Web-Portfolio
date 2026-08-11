@@ -1,3 +1,26 @@
-body {
+body { 
     margin: 0;
+}
+
+#top {
+    background-color: lightblue;
+    width: 200px;
+    height: 200px;
+    border: 10px solid;
+    padding: 20px;
+}
+
+#mid {
+    background-color: lightcyan;
+    width: 200px;
+    height: 200px;
+    border: 20px;
+    padding-top: 10px;
+}
+
+#bot {
+    background-color: lightgoldenrodyellow;
+    width: 200px;
+    height: 200px;
+    border: 10px;
 }
