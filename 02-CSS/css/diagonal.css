@@ -15,7 +15,11 @@ body {
     width: 200px;
     height: 200px;
     border: 20px;
-    padding-top: 10px;
+    /* Extra de mid */
+    position: relative; /* Los siguinetes movimientos van a ser relativos */
+    bottom: 16px;
+    left: 260px;
+
 }
 
 #bot {
@@ -23,4 +27,8 @@ body {
     width: 200px;
     height: 200px;
     border: 10px;
+    /* Extra de bot */
+    position: relative; /* Los siguinetes movimientos van a ser relativos */
+    bottom: 32px;
+    left: 460px;    
 }
