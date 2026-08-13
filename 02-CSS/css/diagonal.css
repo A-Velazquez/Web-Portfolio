@@ -14,10 +14,9 @@ body {
     background-color: lightcyan;
     width: 200px;
     height: 200px;
-    border: 20px;
+    border: 20px solid;
     /* Extra de mid */
-    position: relative; /* Los siguinetes movimientos van a ser relativos */
-    bottom: 16px;
+    position: relative; /* Los siguientes movimientos van a ser relativos */
     left: 260px;
 
 }
@@ -26,9 +25,8 @@ body {
     background-color: lightgoldenrodyellow;
     width: 200px;
     height: 200px;
-    border: 10px;
+    border: 10px solid;
     /* Extra de bot */
-    position: relative; /* Los siguinetes movimientos van a ser relativos */
-    bottom: 32px;
-    left: 460px;    
+    position: relative; /* Los siguientes movimientos van a ser relativos */
+    left: 500px;    
 }
