@@ -1,3 +1,24 @@
 body {
     margin: 0;
+} 
+
+#left {
+    display: inline-block;
+    background-color: yellow;
+    height: 200px;
+    width: 200px;
+}
+
+#mid {
+    display: inline-block;
+    background-color: blue;
+    height: 200px;
+    width: 200px;
+}
+
+#right {
+    display: inline-block;
+    background-color: red;
+    height: 200px;
+    width: 200px;
 }
