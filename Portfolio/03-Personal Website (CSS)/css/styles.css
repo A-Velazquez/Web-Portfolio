@@ -10,14 +10,36 @@ body {
   text-align: center;
   justify-content: center; 
   align-items: center;
-  margin: 0;
+  margin: 0; 
 } 
 
 h1 {
   /*Change the font for all h1*/
   font-family: 'Sacramento', cursive;
   /*Change the color of the text so it contrasts with the background*/
-  color: black; 
+  color:darkblue; 
+  /*Increase font size to 5.5 rem*/
+  font-size: 5.5 rem;
+  /*Add a margin of 50px*/
+  margin: 50px;
+}
+
+h2 {
+  /*Change the font to 'Montserrat', sans-serif*/
+  font-family: 'Montserrat', sans-serif;
+  /*Change font size to 2.5 rem*/
+  font-size: 2.5 rem;
+  /*Add 10 px padding to below*/
+  padding-bottom: 10px;
+  /*Change the text to another color that plays well with the background*/
+  color:darkcyan;
+}
+
+h3 {
+  /*Change the font to 'Montserrat', sans-serif*/
+  font-family: 'Montserrat', sans-serif;
+  /*Select a third text color that plays well with the background*/
+  color: darkturquoise;
 }
 
 ul, ol {
