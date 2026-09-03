@@ -39,6 +39,7 @@ const createActionCard = (text, priority) => {
     // - Move Up button: data-action="up"
     // - Move Down button: data-action="down"
     // - Delete button: data-action="delete"
+    
     li.innerHTML = `
         <div class="d-flex align-items-center">
             <span class="card-title fw-semibold">${text}</span>

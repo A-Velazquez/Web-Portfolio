@@ -8,35 +8,74 @@
 </head>
 <body>
 
-  <!-- My name as main title -->
-  <h1>Adrian Isaac Velazquez Ramirez</h1>
+  <!-- My name as main title with personal photo -->
+  <table>
+    <tr>
+      <td>
+        <h1>Adrian Isaac Velazquez Ramirez</h1>
+        <!-- My current "job" and address -->
+        <p>Student<br>
+        Atemajac del Valle, Insurgentes</p>
 
-  <!-- My current "job" and address -->
-  <p>Student<br>
-  Atemajac del Valle, Insurgentes</p>
+        <!-- How I want to be known -->
+        <p>I want to be known as a lazy and no-social person</p>
 
-  <!-- How I want to be known -->
-  <p>I want to be known as a lazy and no-social person</p>
+        <!-- Favorite quote -->
+        <p>"If God had wanted you to live, he would not have created me!" <br>
+        - Soldier Tf2</p>
+      </td>
+      <td> 
+        <img src="./images/Personal Photo.PNG" style="width:150px;height:150px;">
+      </td>
+    </tr>
+  </table>
 
-  <!-- Favorite quote -->
-  <p>"If God had wanted you to live, he would not have created me!" <br>
-  - Soldier Tf2</p>
+  <hr>
+
+  <!-- Navigation to Destinations Page -->
+  <h3><a href="destination.html">My Favorite Spots</a></h3>
+  
+  <!-- Direct Links to Destinations -->
+  <ul>
+    <li><a href="destination.html#mount-everest">Mount Everest</a></li>
+    <li><a href="destination.html#mount-fuji">Mount Fuji</a></li>
+    <li><a href="destination.html#eiffel-tower">Eiffel Tower</a></li>
+    <li><a href="destination.html#blockbuster">The Last Blockbuster</a></li>
+    <li><a href="destination.html#pyramids">The Pyramids of Giza</a></li>
+  </ul>
+
+  <hr>
 
   <h2>Background</h2>
 
   <!-- Small text of background and main goal in life -->
-  <p>I am a computer science studen who really likes to play videogames<br>
+  <p>I am a computer science student who really likes to play videogames<br>
   My main goal is to get married</p>
 
   <h3>Education</h3>
 
-  <!-- An unordered list of my education -->
-  <ul>
-    <li><b>2025-2030</b> Universidad Panamericana</li>
-    <li><b>2019-2025</b> Colegio Altamira Moctezuma</li>
-    <li><b>2013-2019</b> Primaria Kipling Country School</li>
-    <li><b>2009-2013</b> Kinder Walt Disney</li>
-  </ul>
+  <table>
+    <tr>
+      <th><a href="https://www.up.edu.mx//" target="_blank"><b>Universidad Panamericana</b></a></th>
+      <th><b>2025-2030</b></th>
+      <th><a href="https://www.up.edu.mx/" target="_blank"><img src="./images/Universidad Panamericana Logo.PNG" style="width:100px;height:100px;" class = "schoolLogo"></a></th>
+    </tr>
+    <tr>
+      <th><a href="https://www.colegioaltamira.edu.mx/" target="_blank"><b>Colegio Altamira Moctezuma</b></a></th>
+      <th><b>2019-2025</b></th>
+      <th><a href="https://www.colegioaltamira.edu.mx/" target="_blank"><img src="./images/Colegio Altamira Logo.PNG" style="width:100px;height:100px;" class = "schoolLogo"></a></th>
+    </tr>
+    <tr>
+      <th><b>Primaria Kipling Country School</b></a></th>
+      <th><b>2013-2019</b></th>
+      <th><img src="./images/Kipling Country School Logo.PNG" style="width:100px;height:100px;" class = "schoolLogo" ></a></th>
+    </tr>
+    <tr>
+      <th><b>Kinder Walter Elias Disney</b></a></th>
+      <th><b>2009-2013</b></th>
+      <th><img src="./images/Kinder Logo.png" style="width:100px;height:100px;" class = "schoolLogo"></a></th>
+    </tr>
+  </table>
 
   <h3>Skills</h3>
 
@@ -49,6 +88,8 @@
     <li>Visual Basic - <b>10%</b></li>
     <li>Linux - <b>5%</b></li>
   </ol>
+
+  <hr>
 
   <!-- This is where the first section starts -->
   <section>
@@ -67,7 +108,8 @@
           <li>Russian</li>
         </ol>
 
-      <h6></h6 <!-- So, apparently a header can help me with a bug I am having with the lists -->
+      <!-- So, apparently a header can help me with a bug I am having with the lists -->
+      <hr>
 
         <ul>
           <li>Scottish</li>
@@ -80,27 +122,145 @@
       
 
   <!-- Unordered list with the Books, Movies and Tv Shows I like -->
-  <div id="thingsIlike">
+
+    <div id="listThingsIlike">
     <ul>
-      <li>Books </li>
+    <div class="imagesThingsIlike">
+     <img src="./images/Book Cover - Hobbit Cover.PNG" style="width:60px;height:80px;">
+    </div>
+      <li> <b>Books</b></li>
         <ul>
           <li>Percy Jackson</li>
           <li>Narnia</li>
           <li>Hobbit</li>
         </ul>
-      <li>Movies </li>
+      <div class="imagesThingsIlike"><img src="./images/Movie Poster - Start Wars Revenge of the Sith.PNG" style="width:60px;height:80px;"></div> 
+      <li><b>Movies</b></li>
         <ul>
           <li>Spiderman 2</li>
           <li>Star Wars 3</li>
           <li>A silent voice</li>
         </ul>
-      <li>Tv shows </li>
+      <div class="imagesThingsIlike">
+        <img src="./images/Show Poster - The Spectacular Spiderman.jpg" style="width:60px;height:80px;">
+      </div>
+      <li> <b>Tv Shows</b></li>
+        
         <ul>
           <li>The spectacular spiderman</li>
           <li>Arcane</li>
           <li>Avatar: The legend of Aang</li>
         </ul>
     </ul>   
-  </div>    
+    </div>
+      
+
+  </section>
+  <!-- End of Hobbies section -->
+
+  <hr>
+
+  <!-- Heroes/Writers/Musicians Section -->
+  <h2>Notable Figures</h2>
+  <table>
+    <tr>
+      <th>Picture</th>
+      <th>Name</th>
+      <th>Date of Birth / Death</th>
+      <th>Profession</th>
+      <th>Achievements / Famous Work</th>
+    </tr>
+    <tr>
+      <td><img src="./images/Hideo Kojima Photo.jpg" style="width:80px;height:80px;"></td>
+      <td><b>Hideo Kojima</b></td>
+      <td>1963 - Alive</td>
+      <td>Game Designer</td>
+      <td>Metal Gear series, Director</td>
+    </tr>
+    <tr>
+      <td><img src="./images/Yoko Taro Photo.jpg" style="width:80px;height:80px;"></td>
+      <td><b>Yoko taro</b></td>
+      <td>1970 - Alive</td>
+      <td>Game Director</td>
+      <td>Nier series, Director</td>
+    </tr>
+    <tr>
+      <td><img src="./images/Gabe Newell Photo.jpg" style="width:80px;height:80px;"></td>
+      <td><b>Gabe Newwel</b></td>
+      <td>1962 - Alives</td>
+      <td>Theoretical Physicist</td>
+      <td>Black Hole Radiation, A Brief History of Time</td>
+    </tr>
+  </table>
+
+  <hr>
+
+  <!-- Weekly Schedule Table -->
+  <h2>Weekly Schedule</h2>
+  <table border="1" cellpadding="10">
+    <tr>
+      <th>Date</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Description</th>
+      <th>Place</th>
+      <th>Type</th>
+      <th>Notes</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td>2026-09-01</td>
+      <td>09:00</td>
+      <td>11:00</td>
+      <td>Web Development Class</td>
+      <td>My room</td>
+      <td>School</td>
+      <td>Lets hope the electricity doesn't go away</td>
+      <td>🔴 Busy</td>
+    </tr>
+  </table>
+
+  <hr>
+
+  <!-- Weekly Schedule Form -->
+  <h2>Register a New Activity</h2>
+  <form>
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required><br><br>
+
+    <label for="timestart">Time Start:</label>
+    <input type="time" id="timestart" name="timestart" required><br><br>
+
+    <label for="timeend">Time End:</label>
+    <input type="time" id="timeend" name="timeend" required><br><br>
+
+    <label for="activity">Activity:</label>
+    <input type="text" id="activity" name="activity" placeholder="Enter activity name" required><br><br>
+
+    <label for="place">Place:</label>
+    <input type="text" id="place" name="place" placeholder="Enter location" required><br><br>
+
+    <label for="type">Type:</label>
+    <select id="type" name="type" required>
+      <option value="">-- Select Type --</option>
+      <option value="school">School</option>
+      <option value="personal">Personal</option>
+      <option value="professional">Professional</option>
+      <option value="familiar">Familiar</option>
+      <option value="other">Other</option>
+    </select><br><br>
+
+    <label for="notes">Notes:</label>
+    <textarea id="notes" name="notes" rows="4" cols="50" placeholder="Add any additional notes"></textarea><br><br>
+
+    <label for="flag">Flag Color:</label>
+    <input type="color" id="flag" name="flag"><br><br>
+
+    <label for="freebusy">Status:</label>
+    <input type="checkbox" id="freebusy" name="freebusy"> Free (leave unchecked for Busy)<br><br>
+
+    <button type="submit">Register Activity</button>
+    <button type="reset">Clear Form</button>
+  </form>
 </body>
 </html>

@@ -55,10 +55,33 @@ li {
   margin: 4px 0;
 }
 
-#thingsIlike {
-  /*The following are necessary for them to stay in the middle since this list has subsections*/
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+.imagesThingsIlike {
+  padding-left: 50px;
+  padding-top: 10px;
+  
+}
+
+/*Modify all logos to be of max size 100 x 100 px and make them round*/
+.schoolLogo {
+  border-radius: 50%; /*Decrease the corners to round shape*/
+}
+
+/*
+Change the L&F of links
+
+Eliminate the underlining
+Make them bold.
+On hover over, change its color to green
+*/
+
+a {
+    text-decoration: none;
+    text-decoration: all;
+    text-decoration: inherit;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #00ff00;
+    transition: color 0.3s ease;
 }
