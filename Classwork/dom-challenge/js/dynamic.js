@@ -61,7 +61,9 @@ const createActionCard = (text, priority) => {
 // ==========================================
 const updateCounter = () => {
     // Calculate total children nodes inside actionList and update cardCounter display.
-    cardCounter.textContent = "Total: " + actionList.children.length + " items";
+    const total = actionList.children.length;
+    const completed = actionList.querySelectorAll('.completed').length;
+    cardCounter.textContent = "Open tasks: " + (total - completed) + " / Total tasks: " + total;
 };
 
 // ==========================================
@@ -98,11 +100,17 @@ actionList.addEventListener('click', (e) => {
     if (action === 'toggle') {
         // Toggle complete class on currentCard
         currentCard.classList.toggle("completed");
+        updateCounter();
     } 
     else if (action === 'delete') {
         // Fade out/remove currentCard from DOM, update totals
-        e.target.parentElement.parentElement.remove();
-        updateCounter();
+        currentCard.style.transition = "all 0.3s ease";
+        currentCard.style.opacity = 0;
+        currentCard.style.transform = "scale(0.9)";
+        setTimeout(() => {
+            currentCard.remove();
+            updateCounter();
+        }, 300);
     } 
     else if (action === 'up') {
         // Find sibling element directly above currentCard
