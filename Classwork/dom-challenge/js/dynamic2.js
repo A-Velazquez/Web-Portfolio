@@ -1,5 +1,5 @@
 // ==========================================
-// 1. SELECTORS & CORE STATE 
+// 1. SELECTORS & CORE STATE
 // ==========================================
 const actionForm = document.getElementById('action-form');
 const actionInput = document.getElementById('action-input');
@@ -13,40 +13,23 @@ const fileInput = document.getElementById('file-input');
 // ==========================================
 // 2. TODO: PROGRAMMATIC NODE CREATION
 // ==========================================
-const createActionCard = (text, priority) => {
+const createActionCard = (text, priority, completed = false) => {
     // 2a. Create the parent 'li' item
     const li = document.createElement('li');
     
     // 2b. Add basic utility classes: 'list-group-item', 'd-flex', 'justify-content-between', 'align-items-center', 'impact-card'
-    li.classList.add(
-        'list-group-item',
-        'd-flex',
-        'justify-content-between',
-        'align-items-center',
-        'impact-card'
-    );
     // 2c. Add appropriate priority class ('priority-high', 'priority-medium', 'priority-low')
-    let priorityClass;
-    if (priority === "low") priorityClass = "priority-low";
-    if (priority === "medium") priorityClass = "priority-medium";
-    if (priority === "high") priorityClass = "priority-high";
-    li.classList.add(priorityClass)
-
-    let badgeColor = "bg-secondary";
-    if (priority === "low") badgeColor = "bg-info";
-    if (priority === "medium") badgeColor = "bg-warning";
-    if (priority === "high") badgeColor = "bg-danger";
+    
     // 2d. Construct interior HTML with text nodes, priority badges, action button icons
     // Make sure the action buttons have explicit data-action tags:
     // - Complete button: data-action="toggle"
     // - Move Up button: data-action="up"
     // - Move Down button: data-action="down"
     // - Delete button: data-action="delete"
-    
     li.innerHTML = `
         <div class="d-flex align-items-center">
             <span class="card-title fw-semibold">${text}</span>
-            <span class="badge ms-2 ${badgeColor} text-capitalize">${priority}</span>
+            <span class="badge ms-2 bg-secondary text-capitalize">${priority}</span>
         </div>
         <div class="btn-group btn-group-sm">
             <button class="btn btn-outline-success" data-action="toggle">✓</button>
@@ -64,9 +47,6 @@ const createActionCard = (text, priority) => {
 // ==========================================
 const updateCounter = () => {
     // Calculate total children nodes inside actionList and update cardCounter display.
-    const total = actionList.children.length;
-    const completed = actionList.querySelectorAll('.completed').length;
-    cardCounter.textContent = "Open tasks: " + (total - completed) + " / Total tasks: " + total;
 };
 
 // ==========================================
@@ -77,14 +57,6 @@ actionForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
     // Extract input text, instantiate a card, append to target list, reset forms, update counts
-    const text = actionInput.value.trim();
-    const priority = prioritySelect.value;
-    if (text === "") return;
-    const newCard = createActionCard(text,priority);
-    actionList.appendChild(newCard);
-    actionInput.value = "";
-    prioritySelect.value = "medium";
-    updateCounter();
 });
 
 // ==========================================
@@ -102,59 +74,27 @@ actionList.addEventListener('click', (e) => {
     // 5c. Implement dynamic operations based on selected action types:
     if (action === 'toggle') {
         // Toggle complete class on currentCard
-        currentCard.classList.toggle("completed");
-        updateCounter();
     } 
     else if (action === 'delete') {
         // Fade out/remove currentCard from DOM, update totals
-        currentCard.style.transition = "all 0.3s ease";
-        currentCard.style.opacity = 0;
-        currentCard.style.transform = "scale(0.9)";
-        setTimeout(() => {
-            currentCard.remove();
-            updateCounter();
-        }, 300);
     } 
     else if (action === 'up') {
         // Find sibling element directly above currentCard
-        const previousSibling = currentCard.previousSibling;
         // If it exists, use parentNode.insertBefore() to swap positions
-        if(previousSibling){
-            actionList.insertBefore(currentCard, previousSibling);
-        }
     } 
     else if (action === 'down') {
         // Find sibling element directly below currentCard
-        const nextSibling = currentCard.nextSibling;
         // If it exists, use sibling.nextElementSibling to swap or insertBefore
-        if(nextSibling){
-            actionList.insertBefore(nextSibling, currentCard);
-        }
     }
 });
-
 
 // ==========================================
 // 6. LOCAL FILE EXPORT ENGINE 
 // ==========================================
 saveBtn.addEventListener('click', () => {
     // 1. Target all dynamically spawned list item nodes inside the DOM
-    const actionCards = actionList.querySelectorAll("li");
-    const exportData = [];
 
     // 2. Loop through active elements and scrape current UI state into an array
-    actionCards.forEach(card => {
-            const titleElement = card.querySelector(".card-title");
-            const priorityElement = card.querySelector(".badge");
-            const isCompleted = card.classList.contains("completed");
-            exportData.push({
-                title: titleElement ? titleElement.textContent : "",
-                priority: priorityElement ? priorityElement.textContent.toLowerCase() : "",
-                completed: isCompleted
-            });
-            console.log("Exported data");
-
-    });
 
     // 3. Defensive Check: Prevent exporting blank structures
 

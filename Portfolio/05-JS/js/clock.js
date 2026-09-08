@@ -3,7 +3,7 @@ function drawClock() {
   drawNumbers(ctx, radius);
   drawTime(ctx, radius);
 }
-
+ 
 function drawFace(ctx, radius) {
   var grad;
   ctx.beginPath();
@@ -13,9 +13,14 @@ function drawFace(ctx, radius) {
 
   // Draw the edge circle with gradient
   // TODO: (Optional) add a gradient circle
+  
 
   // Center circle
   // TODO: make the central black circle
+  ctx.beginPath();
+  ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
+  ctx.fillStyle = "black";
+  ctx.fill();
 }
 
 function drawNumbers(ctx, radius) {

@@ -67,6 +67,22 @@ li {
 }
 
 /*
+Modify the hr to
+
+Dotted, color #EAF6F6 and width 6px
+No bottom border
+Width in the screen of 4%
+Margins of 100px left and right
+*/
+hr {
+  border: none;
+  border-top: 6px dotted #EAF6F6;
+  width: 4%;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+/*
 Change the L&F of links
 
 Eliminate the underlining
@@ -84,4 +100,98 @@ a {
 a:hover {
     color: #00ff00;
     transition: color 0.3s ease;
+}
+
+/*
+For every even section change the background to 
+a secondary/alternate color that still works with 
+your palette.
+*/
+
+.evenSection {
+  background-color: #EAF6F6;
+  border-radius: 20px;
+}
+
+/*
+The following are for the "meet the team" section
+*/
+
+    /* Three columns side by side */
+    .column {
+      float: left; 
+      width: 30%;
+      margin-bottom: 16px;
+      padding: 0 8px;
+    }
+
+    /* Display the columns below each other instead of side by side on small screens */
+    @media screen and (max-width: 650px) {
+      .column {
+        width: 100%;
+        display: block;
+      }
+    }
+
+    /* Add some shadows to create a card effect */
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    /* Some left and right padding inside the container */
+    .container {
+      padding: 0 16px;
+      height:155px;
+    }
+
+    /* Clear floats */
+    .container::after, .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    .title {
+      color: grey;
+    }
+
+/*
+Create a dotted boundary around the form and change its background
+*/
+form {
+  border: 2px dotted #000000;
+  background-color: #eaeef6;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/*
+Make all inputs rounded and set their 
+backgrounds to a color that plays well 
+with the background of the form
+*/
+
+input[type="text"], input[type="email"], textarea {
+  border-radius: 5px;
+  background-color: #f0f4f8;
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/*
+Integrate the mountain and 2 clouds, 
+and make the mountain static and the cloud sticky.
+*/
+#mountain {
+  position: static;
+}
+
+.cloud {
+  top:100px;
+  left:100px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
