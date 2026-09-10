@@ -22,8 +22,11 @@ var getPrimeFactors = function (n) {
 
   //TODO: Check which numbers are factors of n and also check if
   // that number also happens to be a prime
-
-  return sequence;
+  while (n > 1) {
+    if (isPrime(n)) sequence.push(n); 
+    n--; 
+  }
+  
 };
 
 // the prime factors for this number are: [ 2, 3, 5, 7, 11, 13 ]

@@ -11,11 +11,14 @@ var memo = {};
 const button = document.getElementById("btn");
 button.addEventListener("click", e=> {
   var n = parseInt(document.getElementById("num").value);
-  fibonacci(n);
-  
+
+
   var resultSequence = fibonacci(n);
 
   console.log(`Sequence for ${n}:`, resultSequence);
+
+  // Show the result on the page
+  document.getElementById("fibonacciLbl").textContent = resultSequence.join(", ");
 });
 
 function fibonacci(n) {
@@ -40,20 +43,17 @@ function f(n) {
       sequence = [0, 1];
     } else {
 // Recursively get the sequence up to (n - 1)
-    var prevSequence = fibonacci(n - 1);
+    var prevSequence = f(n - 1);
     
     // Copy the previous array and append the next calculated number
     var nextValue = prevSequence[prevSequence.length - 1] + prevSequence[prevSequence.length - 2];
     sequence = prevSequence.concat(nextValue);
     }
 
-    memo[n] = sequence[sequence.length - 1];
+    memo[n] = sequence;
 
-    return sequence;
+    value = sequence;
   }
 
   return value;
 }
-
-
-
