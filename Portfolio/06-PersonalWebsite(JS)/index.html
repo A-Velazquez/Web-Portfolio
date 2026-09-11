@@ -17,7 +17,7 @@
 
 
   <!-- My name as main title with personal photo -->
-  <table>
+  <table> 
     <tr>
       <td>
         <h1>Adrian Isaac Velazquez Ramirez</h1>
@@ -280,7 +280,8 @@
 
   <!-- Weekly Schedule Table -->
   <h2>Weekly Schedule</h2>
-  <table border="1" cellpadding="10">
+<table border="1" id="scheduleTable" cellpadding="10">
+  <thead>
     <tr>
       <th>Date</th>
       <th>Start</th>
@@ -291,17 +292,10 @@
       <th>Notes</th>
       <th>Status</th>
     </tr>
-    <tr>
-      <td>2026-09-01</td>
-      <td>09:00</td>
-      <td>11:00</td>
-      <td>Web Development Class</td>
-      <td>My room</td>
-      <td>School</td>
-      <td>Lets hope the electricity doesn't go away</td>
-      <td>🔴 Busy</td>
-    </tr>
-  </table>
+  </thead>
+  <tbody id="appendSchedule">
+  </tbody>
+</table>
 
   <hr>
 
@@ -342,7 +336,7 @@
     <label for="freebusy">Status:</label>
     <input type="checkbox" id="freeBusy" name="freebusy"> Free (leave unchecked for Busy)<br><br>
 
-    <button type="button" id="submitButton">Register Activity</button>
+    <button type="submit" id="submitButton">Register Activity</button>
     <button type="reset">Clear Form</button>
   </form>
 <script src="js/server.js"></script>
