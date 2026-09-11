@@ -9,8 +9,8 @@
 <body>
 
     <!-- Cloud images, which will be sticky -->
-  <img src="./images/cloud.png" class="cloud" style="padding-right: 100px;">
-  <img src="./images/cloud.png" class="cloud" style="padding-left: 300px;">
+  <img src="./images/cloud.png" class="cloud" style="padding-right: 1150px;">
+  <img src="./images/cloud.png" class="cloud" style="padding-left: 1050px;">
   <!-- Mountain Image, which will be static -->
   <img src="./images/mountain.png" id="mountain">;
 
@@ -118,7 +118,7 @@
   <!-- This is where the first section starts -->
   <!-- This is an even section -->
   <section>
-   <div class = "evenSection">
+   <div class = "evenSection" id="hobbies">
     <h2>Hobbies</h2>
     
         <!-- This is where the second section starts -->
@@ -195,7 +195,7 @@
    <section>
 
   <!-- Change the heroes section to a meet the team version -->
-    <div class = "evenSection">
+    <div class = "evenSection" id="notableFigures">
 
       <h2>Notable Figures</h2>
 
@@ -301,7 +301,7 @@
 
   <!-- Weekly Schedule Form -->
   <h2>Register a New Activity</h2>
-  <form>
+  <form id="scheduleForm">
     <label for="date">Date:</label>
     <input type="date" id="date" name="date" required><br><br>
 
@@ -331,7 +331,7 @@
     <textarea id="notes" name="notes" rows="4" cols="50" placeholder="Add any additional notes"></textarea><br><br>
 
     <label for="flag">Flag Color:</label>
-    <input type="color" id="flag" name="flag"><br><br>
+    <input type="color" id="flag" name="flag" value=#FFFFFF><br><br>
 
     <label for="freebusy">Status:</label>
     <input type="checkbox" id="freeBusy" name="freebusy"> Free (leave unchecked for Busy)<br><br>

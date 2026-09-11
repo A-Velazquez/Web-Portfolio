@@ -1,5 +1,7 @@
 // The const for the button to submit
 const submitButton = document.getElementById("submitButton");
+// Save the form to restart it
+const form = document.getElementById("scheduleForm");
 // Save the place where the schedule table is
 const scheduleTable = document.getElementById("appendSchedule");
 
@@ -15,11 +17,14 @@ function updatingTable(){
     const flag = document.getElementById("flag").value;
     const checkBox = document.getElementById("freeBusy");
 
+    console.log(flag);  
+    
+
     // Give a value if the checkBox is cheked or not
-    let flagValue = (checkBox.checked) ? "🟢 Free" : "🔴 Busy"; // This in an if with ternary operation, dunno I wanted to try it
+    let checkBoxValue = (checkBox.checked) ? "🟢 Free" : "🔴 Busy"; // This in an if with ternary operation, dunno I wanted to try it
 
     scheduleTable.innerHTML += `
-                <tr>
+                <tr style="background-color: ${flag}80;"> <!--The 80 is added for transparency-->
                     <td>${date}</td>
                     <td>${timeStart}</td>
                     <td>${timeEnd}</td>
@@ -27,7 +32,7 @@ function updatingTable(){
                     <td>${place}</td>
                     <td>${type}</td>
                     <td>${notes}</td>
-                    <td>${flagValue}</td>
+                    <td>${checkBoxValue}</td>
                 </tr>    
     `;
 }
@@ -37,8 +42,11 @@ submitButton.addEventListener("click", (e) => {
     // Prevent the refresh
     e.preventDefault();
     updatingTable();
+    // Reset the values of the form
+    form.reset()
 });
 
 console.log("Running the script");  
+
 
 

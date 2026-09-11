@@ -111,6 +111,7 @@ your palette.
 .evenSection {
   background-color: #EAF6F6;
   border-radius: 20px;
+  padding: 50px;
 }
 
 /*
@@ -194,4 +195,8 @@ and make the mountain static and the cloud sticky.
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+#scheduleForm {
+  margin-bottom: 50px;
 }
