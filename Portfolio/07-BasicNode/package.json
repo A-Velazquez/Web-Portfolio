@@ -3,12 +3,21 @@
   "version": "1.0.0",
   "description": "These exercises will guide us on how to create a simple Node script and how to execute it, as well as understanding how to get to use libraries inside of Node.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "node helloWorld.js",
+    "start:hello": "node helloWorld.js",
+    "start:star": "node starWars.js",
+    "start:heroesAndVillains": "node superheroesVsVillains.js",
+    "start:read": "node readFile.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "start": "node index.js"
+  "dependencies": {
+    "fs-extra": "^11.4.1",
+    "star-wars-quotes": "^1.0.2",
+    "superheroes": "^4.0.0",
+    "supervillains": "^4.0.0"
+  }
 }
