@@ -1,4 +1,6 @@
 import express from 'express';
+// import axios from 'axios';
+import { getWeatherFrom } from './services/meteo-service.js';
 
 const app = express();
 app.use(express.json()); //Middleware
@@ -72,6 +74,10 @@ app.get('/api/scientists/:id/profile/:keyword', (req, res) => {
   });
 });
 
+app.get("/api/initiatives", (req,res) => {
+  res.json
+});
+
 app.post("/api/initiatives", (req,res) => {
   const { title, budget, department } = req.body;
   const initiative = { title, budget, department };
@@ -79,8 +85,20 @@ app.post("/api/initiatives", (req,res) => {
   res.json({title, budget, department});
 });
 
+
+
 app.post('/about', (req, res) => {
   res.send('This is still my WebApp Class Project, but secure');
+});
+
+app.get("/weatherGDL", async (req, res) => {
+  const respString = await getWeatherFrom(20.6597, -103.349, "Guadalajara");
+  res.send(respString);
+});
+
+app.get("/weatherLSN", async (req, res) => {
+  const respString = await getWeatherFrom(46.52, -6.63, "Guadalajara");
+  res.send(respString);
 });
 
 app.listen(3000, () => {
