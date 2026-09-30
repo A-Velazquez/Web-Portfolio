@@ -1,0 +1,21 @@
+{
+  "name": "s13-node-lab",
+  "version": "1.0.0",
+  "description": "**Objective:** Build a command-line application using Node.js that harvests local machine stats (CPU model, total memory, uptime), fetches live environmental metrics from a public API, displays a formatted color audit in the terminal, and writes a permanent log file (`telemetry.log`) to disk.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "fs": "^0.0.1-security",
+    "fs-extra": "^11.4.0",
+    "os": "^0.1.2",
+    "path": "^0.12.7"
+  },
+  "start": "node index.js"
+}
