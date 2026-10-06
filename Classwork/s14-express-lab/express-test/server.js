@@ -14,13 +14,20 @@ const scientists = [
     { id: 3, name: "Dr. Aisha Khan", department: "Climate", projects: 7 }
 ];
 
+
+
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
-app.get('/about', (req, res) => {
-  res.send('This is my WebApp Class Project');
+app.get('/about', (req, res, next) => {
+  next({msg: "This is my WebApp Class Project"});
 });
+
+app.get('/about', (req, res, next) => {
+  res.send('This is my WebApp Class Project, but secure');
+});
+
 
 // /greet?name=***&city=***
 app.get('/greet', (req, res) => {
@@ -99,6 +106,61 @@ app.get("/weatherGDL", async (req, res) => {
 app.get("/weatherLSN", async (req, res) => {
   const respString = await getWeatherFrom(46.52, -6.63, "Guadalajara");
   res.send(respString);
+});
+
+const cities = {
+  GDL : { lat: 20.6597, lon: -103.349 },
+  LSN : { lat: 46.52, lon: -6.63 }
+};
+
+/*
+app.get("/weather/:city", async (req, res, next) => {
+  try {
+    const { city } = req.params;
+    if (!city) throw new Error("City code is required.");
+    if (!cities[city]) throw new Error("Invalid city code.");
+    const {  lat, lon } = cities[city];
+    const respString = await getWeatherFrom(lat, lon, city);
+    res.send(respString);
+  } catch (error) {
+    res.status(400).send("Invalid city code.");
+    if (error.message == "City code is required.") {
+      res.status(400).send({error : "City code is required."});
+    }
+    if (error.message == "Invalid city code.") {
+      res.status(400).send({error : "Invalid city code."});
+    }
+      res.status(500).send({error : "Unknown Error."});
+  }
+});
+*/
+
+app.get("/weather/:city", async (req, res, next) => {
+
+    const { city } = req.params;
+    if (!city) next(new WeatherError("City code is required.", 400, "/weather/:city"));
+    if (!cities[city]) next(new WeatherError("Invalid city code.", 400, "/weather/:city"));
+    const {  lat, lon, name } = cities[city];
+    const respString = await getWeatherFrom(lat, lon, name);
+    res.send(respString);
+
+});
+
+/*
+app.all ('/*', (req, res) => {
+  res.status(404).send('Route not found');
+});
+*/
+
+
+app.use((err, req, res, next) => { 
+      console.error(err);
+      if (error instanceof WeatherError) {
+      const msg = err.message || err.rootCauseClass || "Unknown Error";
+      res
+        .status(err.statusCode || 500)
+        .json({ error: msg, rootCause: err.rootCauseClass  });
+  }
 });
 
 app.listen(3000, () => {
