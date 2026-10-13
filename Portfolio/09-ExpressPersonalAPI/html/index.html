@@ -14,11 +14,49 @@
             <%= error %>
         </h3>
         <% } %>
+
             <form action="/greet" method="get">
                 Register:
                 <input type="text" name="name" id="name" placeholder="Name">
                 <input type="submit" value="go next">
             </form>
+
+            <% if (locals.lastName && lastName !== "") { %>
+                <p>Hello <%= lastName %>!</p>
+                <% } %>
+
+                    <% if (locals.names && names.length > 0) { %>
+                        <h3>All names:</h3>
+                        <ul>
+                            <% for (let i=0; i < names.length; i++) { %>
+                                <li>
+                                    <a href="/greet/<%= i %>">
+                                        <%= names[i] %>
+                                    </a>
+                                </li>
+                                <% } %>
+                        </ul>
+                        <% } %>
+
+                            <h3>TODO List</h3>
+                            <form action="/task" method="post">
+                                New task:
+                                <input type="text" name="task" id="task" placeholder="Task">
+                                <input type="submit" value="Add task">
+                            </form>
+
+                            <% if (locals.tasks && tasks.length > 0) { %>
+                                <ul>
+                                    <% for (let i=0; i < tasks.length; i++) { %>
+                                        <li>
+                                            <%= tasks[i] %>
+                                                <a href="/task/delete/<%= i %>">Delete</a>
+                                                <a href="/task/up/<%= i %>">Up</a>
+                                                <a href="/task/down/<%= i %>">Down</a>
+                                        </li>
+                                        <% } %>
+                                </ul>
+                                <% } %>
 
 </body>
 

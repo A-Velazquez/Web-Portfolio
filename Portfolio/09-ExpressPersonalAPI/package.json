@@ -1,0 +1,17 @@
+{
+  "name": "09-expresspersonalapi",
+  "version": "1.0.0",
+  "description": "Express API practice with greet and task endpoints",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.3.0",
+    "ejs": "^3.1.10",
+    "express": "^5.2.1"
+  }
+}
