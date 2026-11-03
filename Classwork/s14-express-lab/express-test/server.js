@@ -1,11 +1,32 @@
 import express from 'express';
 // import axios from 'axios';
 import { getWeatherFrom } from './services/meteo-service.js';
+import { WeatherError } from './errors/weather-error.js';
+import weatherRoutes from './routes/weatherRoutes.js';
+import { createUser, findUser, findUsers } from './services/user-service.js';
+
 
 const app = express();
 app.use(express.json()); //Middleware
 
 const initiatives = [];
+// Load environment variables from .env file
+loadEnvFile();
+const dbUser = process.env.DB_USER;
+const dbPass = process.env.DB_PASSWORD;
+const dbName = "WebClass";
+
+const mongoUrl = `mongodb+srv://${dbUser}:${dbPass}@cluster0.em6w7.mongodb.net/${dbName}`;
+connectDB(mongoUrl);
+
+// Create a form and save it on the database. The form should have the following fields: username, name, email, password. The form should be submitted to the server and saved in the database. The server should return a success message if the form is saved successfully.
+app.post(/"user", (req, res) => {
+  const { username, name, email, password } = req.body;
+  createUser({ username, name, email, password }
+  
+  )
+
+// Here ends the mongoDB connection code. The rest of the code is for the Express server and routes.
 
 // Mock In-Memory Database
 const scientists = [
@@ -14,6 +35,14 @@ const scientists = [
     { id: 3, name: "Dr. Aisha Khan", department: "Climate", projects: 7 }
 ];
 
+const protect = (req, res, next) => {
+  const  { token } = req.headers;
+  if (!token  || token !== "mysecrettoken") {
+    return res.status(401).json({ error: 'Unauthorized access' });
+  }
+  next();
+}
+
 
 
 app.get('/', (req, res) => {
@@ -21,7 +50,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res, next) => {
-  next({msg: "This is my WebApp Class Project"});
+  req._internalMsg = "This is my WebApp Class Project";
+  next(`Second Endpoint. ${req._internalMsg}`);
+},
+(req, res) => {
+  res.send('This is my WebApp Class Project, but secure');
 });
 
 app.get('/about', (req, res, next) => {
@@ -98,53 +131,8 @@ app.post('/about', (req, res) => {
   res.send('This is still my WebApp Class Project, but secure');
 });
 
-app.get("/weatherGDL", async (req, res) => {
-  const respString = await getWeatherFrom(20.6597, -103.349, "Guadalajara");
-  res.send(respString);
-});
+app.use("/api/weather", protect ,weatherRoutes);
 
-app.get("/weatherLSN", async (req, res) => {
-  const respString = await getWeatherFrom(46.52, -6.63, "Guadalajara");
-  res.send(respString);
-});
-
-const cities = {
-  GDL : { lat: 20.6597, lon: -103.349 },
-  LSN : { lat: 46.52, lon: -6.63 }
-};
-
-/*
-app.get("/weather/:city", async (req, res, next) => {
-  try {
-    const { city } = req.params;
-    if (!city) throw new Error("City code is required.");
-    if (!cities[city]) throw new Error("Invalid city code.");
-    const {  lat, lon } = cities[city];
-    const respString = await getWeatherFrom(lat, lon, city);
-    res.send(respString);
-  } catch (error) {
-    res.status(400).send("Invalid city code.");
-    if (error.message == "City code is required.") {
-      res.status(400).send({error : "City code is required."});
-    }
-    if (error.message == "Invalid city code.") {
-      res.status(400).send({error : "Invalid city code."});
-    }
-      res.status(500).send({error : "Unknown Error."});
-  }
-});
-*/
-
-app.get("/weather/:city", async (req, res, next) => {
-
-    const { city } = req.params;
-    if (!city) next(new WeatherError("City code is required.", 400, "/weather/:city"));
-    if (!cities[city]) next(new WeatherError("Invalid city code.", 400, "/weather/:city"));
-    const {  lat, lon, name } = cities[city];
-    const respString = await getWeatherFrom(lat, lon, name);
-    res.send(respString);
-
-});
 
 /*
 app.all ('/*', (req, res) => {

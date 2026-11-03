@@ -75,3 +75,15 @@ document.getElementById('post-init-btn').addEventListener('click', () => {
         body: JSON.stringify({ title, priority })
     });
 });
+
+document.getElementById('user-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = document.getElementById('user-username').value;
+    const name = document.getElementById('user-name').value;
+    const email = document.getElementById('user-email').value;
+    const password = document.getElementById('user-password').value;
+    apiRequest('/user', {
+        method: 'POST',
+        body: JSON.stringify({ username, name, email, password })
+    });
+});

@@ -12,9 +12,6 @@ let initiatives = [
 
 // TODO: Use router.route('/') with METHOD CHAINING
 // Chain .get() -> protected, returns all initiatives
-app.get('/', protect, (req, res) => {
-    res.status(200).json({ status: 'success', data: initiatives });
-});
 // Chain .post() -> protected, validates body title & priority, creates & returns new initiative (201)
 router.route('/')
     .get(protect, (req, res) => {

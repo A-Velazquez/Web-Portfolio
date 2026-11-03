@@ -45,6 +45,17 @@
                     </select>
                     <button id="post-init-btn" class="btn btn-success btn-sm w-100">POST /api/initiatives</button>
                 </div>
+
+                <div class="card shadow-sm p-3 mt-3">
+                    <h5 class="card-title h6 fw-bold">4. Register User (POST /user)</h5>
+                    <form id="user-form">
+                        <input type="text" id="user-username" class="form-control form-control-sm mb-2" placeholder="Username" required>
+                        <input type="text" id="user-name" class="form-control form-control-sm mb-2" placeholder="Name">
+                        <input type="email" id="user-email" class="form-control form-control-sm mb-2" placeholder="Email" required>
+                        <input type="password" id="user-password" class="form-control form-control-sm mb-2" placeholder="Password" required>
+                        <button type="submit" id="post-user-btn" class="btn btn-dark btn-sm w-100">POST /user</button>
+                    </form>
+                </div>
             </div>
 
             <!-- Terminal Output Window -->
