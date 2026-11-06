@@ -16,9 +16,9 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <div className="row g-4">
+    <div className="flex flex-1 flex-col items-center justify-center bg-stone-50 px-6 py-16 font-sans dark:bg-stone-950 sm:px-10">
+      <main className="w-full max-w-5xl">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {initiatives.map((item) => (
             <Card key={item.id} initiative={item} onVote={handleVote} />
           ))}
