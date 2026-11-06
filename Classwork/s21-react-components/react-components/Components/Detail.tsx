@@ -1,12 +1,4 @@
-
-export type Initiative = {
-    id: string;
-    title: string;
-    category: string;
-    votes: number;
-    description: string;
-    author: string;
-};
+import type { Initiative } from "../types/initiatives";
 
 const Detail = ({ initiative }: { initiative: Initiative }) => {
     return (
@@ -16,7 +8,7 @@ const Detail = ({ initiative }: { initiative: Initiative }) => {
             </h1>
 
             <p className="mt-1 text-sm text-zinc-500">
-                {initiative.category} · {initiative.votes} votos
+                {initiative.category}
             </p>
 
             <p className="mt-4 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
